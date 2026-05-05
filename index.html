@@ -3,103 +3,112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Мухаммед-Кали & Балауса</title>
+<title>Тойға шақыру</title>
 
 <style>
 body {
-  margin: 0;
-  font-family: Georgia, serif;
-  text-align: center;
-  color: white;
-  background: url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486') no-repeat center/cover;
+    margin: 0;
+    font-family: sans-serif;
+    text-align: center;
+    color: white;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
 }
 
-.overlay {
-  background: rgba(0,0,0,0.5);
-  min-height: 100vh;
-  padding: 20px;
+.container {
+    padding: 30px;
 }
 
-.box {
-  background: white;
-  color: black;
-  padding: 20px;
-  margin: 20px;
-  border-radius: 15px;
+h1 {
+    font-size: 32px;
+}
+
+.card {
+    background: rgba(0,0,0,0.3);
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+img {
+    width: 80%;
+    max-width: 300px;
+    border-radius: 20px;
+    margin-top: 20px;
 }
 
 button {
-  padding: 12px;
-  border: none;
-  border-radius: 10px;
-  background: #ff4d6d;
-  color: white;
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background: white;
+    color: #ff4d6d;
+    font-size: 16px;
+    cursor: pointer;
 }
 
-input {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-
-iframe {
-  width: 100%;
-  height: 250px;
-  border-radius: 10px;
+#countdown {
+    font-size: 24px;
+    margin-top: 15px;
 }
 </style>
-</head>
 
+</head>
 <body>
 
-<div class="overlay">
+<div class="container">
+    <h1>💍 Үйлену тойына шақыру 💍</h1>
 
-<h1>Мухаммед-Кали & Балауса</h1>
-<p>28 маусым 2026</p>
+    <img src="https://i.imgur.com/7b1Z6oO.jpg" alt="Фото">
 
-<!-- МУЗЫКА -->
-<audio id="music" loop>
-<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
-</audio>
+    <div class="card">
+        <p>Құрметті қонақтар!</p>
+        <p>Сіздерді біздің қуанышымызбен бөлісуге шақырамыз ❤️</p>
 
-<button onclick="playMusic()">🎵 Музыканы қосу</button>
+        <h2>📅 20 Тамыз 2026</h2>
+        <h3>📍 Тараз қаласы</h3>
 
-<!-- КАРТА -->
-<div class="box">
-<h2>Той орны</h2>
-<p>Саудакент "Ақ Отау"</p>
+        <div id="countdown"></div>
 
-<iframe src="https://maps.google.com/maps?q=Saudakent&output=embed"></iframe>
-</div>
+        <button onclick="alert('Сізді күтеміз ❤️')">Келемін</button>
+    </div>
 
-<!-- КЕЛЕМІН -->
-<div class="box">
-<h2>Қатысу</h2>
+    <div class="card">
+        <h3>📍 Орналасқан жері</h3>
+        <iframe 
+            src="https://www.google.com/maps?q=Taraz&output=embed"
+            width="100%" 
+            height="250" 
+            style="border:0; border-radius:15px;">
+        </iframe>
+    </div>
 
-<input type="text" id="name" placeholder="Атыңыз"><br><br>
-
-<button onclick="send()">Келемін</button>
-
-<p id="msg"></p>
-</div>
+    <audio controls autoplay loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+    </audio>
 
 </div>
 
 <script>
-function playMusic(){
-document.getElementById("music").play();
-}
+// Таймер
+const weddingDate = new Date("Aug 20, 2026 18:00:00").getTime();
 
-function send(){
-let name = document.getElementById("name").value;
+const x = setInterval(function() {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
 
-if(name==""){
-alert("Атыңызды жазыңыз");
-return;
-}
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
-document.getElementById("msg").innerText = "Рахмет, " + name + "!";
-}
+    document.getElementById("countdown").innerHTML =
+        "⏳ Қалды: " + days + " күн " + hours + " сағ " + minutes + " мин";
+
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "Той басталды!";
+    }
+}, 1000);
 </script>
 
 </body>
