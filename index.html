@@ -36,11 +36,22 @@ h1 {
   backdrop-filter: blur(10px);
 }
 
+/* ❤️ ЖҮРЕК АНИМАЦИЯ */
+.heart {
+  color: red;
+  animation: beat 1s infinite;
+}
+@keyframes beat {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
 .button {
   display: block;
   margin: 10px auto;
-  padding: 10px;
-  border-radius: 10px;
+  padding: 12px;
+  border-radius: 12px;
   border: none;
   width: 90%;
   font-size: 16px;
@@ -51,20 +62,20 @@ h1 {
 .couple { background: #2196F3; color: white; }
 .no { background: #f44336; color: white; }
 
-.calendar {
-  font-size: 20px;
-  margin: 10px;
-}
-
-.heart {
-  color: red;
-}
-
 iframe {
   border-radius: 15px;
   width: 100%;
   height: 250px;
   border: none;
+}
+
+.music-btn {
+  padding:10px;
+  border-radius:10px;
+  border:none;
+  background:#fff;
+  color:#000;
+  margin-top:10px;
 }
 </style>
 </head>
@@ -73,7 +84,7 @@ iframe {
 
 <div class="overlay">
 
-<h1>Мұхаммед-Қали ❤️ Балауса</h1>
+<h1>Мұхаммед-Қали <span class="heart">❤️</span> Балауса</h1>
 
 <div class="card">
 <p>Сіз(дер)ді біздің қуанышымызға ортақтасуға шақырамыз!</p>
@@ -81,9 +92,10 @@ iframe {
 <p><b>Күні:</b> 28.06.2026</p>
 <p><b>Уақыты:</b> 19:00</p>
 
-<div class="calendar">
-📅 28 ❤️ 2026
-</div>
+<p>📅 28 <span class="heart">❤️</span> 2026</p>
+
+<!-- ⏳ ТАЙМЕР -->
+<p id="countdown"></p>
 
 <p><b>Мекенжай:</b><br>
 Саудакент ауылы<br>
@@ -101,30 +113,54 @@ iframe {
 <button class="button couple">Ия, жұбайыммен барамын</button>
 <button class="button no">Өкінішке орай бара алмаймын</button>
 
-<p id="result"></p>
 </div>
 
 <div class="card">
 <h3>Местоположение:</h3>
-
 <iframe src="https://www.google.com/maps?q=Саудакент Ақ Отау&output=embed"></iframe>
-
 </div>
 
-</div>
-
-<!-- Музыка -->
-<audio autoplay loop>
+<!-- 🎵 МУЗЫКА -->
+<audio id="music" loop>
   <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7b8b9d6c02.mp3" type="audio/mpeg">
 </audio>
 
+<button class="music-btn" onclick="playMusic()">🎵 Музыканы қосу</button>
+
+</div>
+
 <script>
+// ⏳ Таймер
+const weddingDate = new Date("June 28, 2026 19:00:00").getTime();
+
+setInterval(function() {
+  const now = new Date().getTime();
+  const distance = weddingDate - now;
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+
+  document.getElementById("countdown").innerText =
+    "Тойға дейін: " + days + " күн " + hours + " сағат";
+
+}, 1000);
+
+// 🎵 Музыка
+function playMusic() {
+  document.getElementById("music").play();
+}
+
+// 📲 WhatsApp жауап
 const buttons = document.querySelectorAll(".button");
-const result = document.getElementById("result");
 
 buttons.forEach(btn => {
   btn.addEventListener("click", () => {
-    result.innerText = "Жауабыңыз үшін рахмет ❤️";
+
+    let text = btn.innerText;
+
+    window.open("https://wa.me/+77713668867?text=" + 
+    encodeURIComponent("Тойға жауап: " + text));
+
   });
 });
 </script>
