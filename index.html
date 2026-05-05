@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Мұхаммед-Қали & Балауса</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    color: white;
+    text-align: center;
+    background: url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486') no-repeat center/cover;
+}
+
+.overlay {
+    background: rgba(0,0,0,0.5);
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+h1 {
+    font-size: 42px;
+    margin-top: 40px;
+}
+
+.section {
+    margin: 40px 0;
+}
+
+.card {
+    background: rgba(255,255,255,0.9);
+    color: #333;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 420px;
+    border-radius: 15px;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 25px;
+    background: #d4af37;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+}
+
+#countdown {
+    font-size: 24px;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="overlay">
+
+<h1>Мұхаммед-Қали & Балауса</h1>
+<p>28 маусым 2026</p>
+
+<div id="countdown"></div>
+
+<div class="card">
+<h2>Құрметті қонақтар!</h2>
+<p>
+Сіздерді үйлену тойымызға қуана шақырамыз!
+</p>
+</div>
+
+<div class="card">
+<h2>Той туралы</h2>
+<p>📅 28 маусым 2026</p>
+<p>⏰ 19:00</p>
+<p>📍 Саудакент ауылы<br>"Ақ Отау" мейрамханасы</p>
+
+<a class="button" href="https://maps.google.com">Карта</a>
+</div>
+
+<div class="card">
+<h2>Бағдарлама</h2>
+<p>18:30 — Қонақтарды қарсы алу</p>
+<p>19:00 — Той басталуы</p>
+<p>20:00 — Құттықтаулар</p>
+<p>21:30 — Би</p>
+</div>
+
+<div class="card">
+<h2>Қатысуды растау</h2>
+<a class="button" href="https://wa.me/77000000000">Қатысамын</a>
+</div>
+
+<p>Сіздерді асыға күтеміз ❤️</p>
+
+</div>
+
+<audio autoplay loop>
+<source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// Countdown
+var countDate = new Date("June 28, 2026 19:00:00").getTime();
+
+var x = setInterval(function() {
+    var now = new Date().getTime();
+    var distance = countDate - now;
+
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+    document.getElementById("countdown").innerHTML =
+    days + " күн " + hours + " сағат " + minutes + " минут";
+
+}, 1000);
+</script>
+
+</body>
+</html>
