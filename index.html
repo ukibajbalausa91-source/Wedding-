@@ -23,13 +23,12 @@ body {
 }
 
 button {
-    padding: 12px 20px;
+    padding: 10px 20px;
     border: none;
     border-radius: 10px;
     background: white;
     color: #ff4d6d;
     font-size: 16px;
-    cursor: pointer;
 }
 
 input {
@@ -39,24 +38,14 @@ input {
     width: 80%;
 }
 </style></head><body><div class="container">
-    <h1>💍 Мұхаммедқали & Балауса 💍</h1><!-- Музыка -->
-<iframe width="100%" height="200"
-src="https://www.youtube.com/embed?listType=search&list=Ильхан Вальс"
-frameborder="0" allowfullscreen
-style="border-radius:15px;">
-</iframe>
-
-<!-- Шақырту -->
-<div class="card">
-    <p>Құрметті қонақтарымыз!</p>
-
-    <p>Сіздерді үйлену тойымызға шын жүректен шақырамыз ❤️</p>
+    <h1>💍 Мұхаммедқали & Балауса 💍</h1><div class="card">
+    <p>Құрметті қонақтар!</p>
+    <p>Сіздерді үйлену тойымызға шақырамыз ❤️</p>
 
     <h3>📅 28 маусым 2026</h3>
     <h3>🕕 18:00</h3>
 </div>
 
-<!-- Мекенжай -->
 <div class="card">
     <h3>📍 Той орны</h3>
     <p>Саудакент, "Ақ Отау"</p>
@@ -68,7 +57,6 @@ style="border-radius:15px;">
     </iframe>
 </div>
 
-<!-- Қатысу -->
 <div class="card">
     <h3>Қатысу</h3>
     <input id="name" placeholder="Атыңыз"><br><br>
@@ -79,11 +67,11 @@ style="border-radius:15px;">
 </div><script>
 function send() {
     const name = document.getElementById("name").value;
-    const phone = "77000000000"; // ӨЗ НОМЕРІҢ
+    const phone = "77000000000"; // ӨЗ НОМЕРІҢДІ ЖАЗ
 
-    const text = `Сәлем! Мен ${name} тойға келемін ❤️`;
+    const text = "Сәлем! Мен " + name + " тойға келемін ❤️";
 
-    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`);
+    window.open("https://wa.me/" + phone + "?text=" + encodeURIComponent(text));
 }
 </script></body>
 </html>
