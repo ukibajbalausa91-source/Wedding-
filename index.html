@@ -1,77 +1,133 @@
-<!DOCTYPE html><html lang="kk">
+<!DOCTYPE html>
+<html lang="kk">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Тойға шақыру</title><style>
+<title>Тойға шақыру</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Montserrat&display=swap" rel="stylesheet">
+
+<style>
 body {
-    margin: 0;
-    font-family: sans-serif;
-    text-align: center;
-    color: white;
-    background: linear-gradient(to right, #ff758c, #ff7eb3);
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  text-align: center;
+  background: url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486') no-repeat center/cover;
 }
 
-.container {
-    padding: 30px;
+.overlay {
+  background: rgba(0,0,0,0.6);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
 }
 
 .card {
-    background: rgba(0,0,0,0.3);
-    padding: 20px;
-    border-radius: 20px;
-    margin-top: 20px;
+  background: rgba(255,255,255,0.1);
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 20px;
+  max-width: 400px;
+  backdrop-filter: blur(10px);
 }
 
-button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px;
-    background: white;
-    color: #ff4d6d;
-    font-size: 16px;
+.button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  width: 90%;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-input {
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    width: 80%;
-}
-</style></head><body><div class="container">
-    <h1>💍 Мұхаммедқали & Балауса 💍</h1><div class="card">
-    <p>Құрметті қонақтар!</p>
-    <p>Сіздерді үйлену тойымызға шақырамыз ❤️</p>
+.yes { background: #4CAF50; color: white; }
+.couple { background: #2196F3; color: white; }
+.no { background: #f44336; color: white; }
 
-    <h3>📅 28 маусым 2026</h3>
-    <h3>🕕 18:00</h3>
+.calendar {
+  font-size: 20px;
+  margin: 10px;
+}
+
+.heart {
+  color: red;
+}
+
+iframe {
+  border-radius: 15px;
+  width: 100%;
+  height: 250px;
+  border: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="overlay">
+
+<h1>Мұхаммед-Қали ❤️ Балауса</h1>
+
+<div class="card">
+<p>Сіз(дер)ді біздің қуанышымызға ортақтасуға шақырамыз!</p>
+
+<p><b>Күні:</b> 28.06.2026</p>
+<p><b>Уақыты:</b> 19:00</p>
+
+<div class="calendar">
+📅 28 ❤️ 2026
+</div>
+
+<p><b>Мекенжай:</b><br>
+Саудакент ауылы<br>
+"Ақ Отау" мейрамханасы</p>
+
+<p><b>Той иелері:</b><br>
+Мейраш<br>
+Баяхметовтар әулеті</p>
 </div>
 
 <div class="card">
-    <h3>📍 Той орны</h3>
-    <p>Саудакент, "Ақ Отау"</p>
+<h3>Қатысуыңызды белгілеңіз:</h3>
 
-    <iframe 
-    src="https://www.google.com/maps?q=Саудакент&output=embed"
-    width="100%" height="250"
-    style="border:0; border-radius:15px;">
-    </iframe>
+<button class="button yes">Ия, барамын</button>
+<button class="button couple">Ия, жұбайыммен барамын</button>
+<button class="button no">Өкінішке орай бара алмаймын</button>
+
+<p id="result"></p>
 </div>
 
 <div class="card">
-    <h3>Қатысу</h3>
-    <input id="name" placeholder="Атыңыз"><br><br>
+<h3>Местоположение:</h3>
 
-    <button onclick="send()">Келемін</button>
+<iframe src="https://www.google.com/maps?q=Саудакент Ақ Отау&output=embed"></iframe>
+
 </div>
 
-</div><script>
-function send() {
-    const name = document.getElementById("name").value;
-    const phone = "77000000000"; // ӨЗ НОМЕРІҢДІ ЖАЗ
+</div>
 
-    const text = "Сәлем! Мен " + name + " тойға келемін ❤️";
+<!-- Музыка -->
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7b8b9d6c02.mp3" type="audio/mpeg">
+</audio>
 
-    window.open("https://wa.me/" + phone + "?text=" + encodeURIComponent(text));
-}
-</script></body>
+<script>
+const buttons = document.querySelectorAll(".button");
+const result = document.getElementById("result");
+
+buttons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    result.innerText = "Жауабыңыз үшін рахмет ❤️";
+  });
+});
+</script>
+
+</body>
 </html>
