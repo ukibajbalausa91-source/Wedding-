@@ -12,14 +12,11 @@ body {
     text-align: center;
     color: white;
     background: linear-gradient(to right, #ff758c, #ff7eb3);
+    overflow-x: hidden;
 }
 
 .container {
     padding: 30px;
-}
-
-h1 {
-    font-size: 32px;
 }
 
 .card {
@@ -37,8 +34,8 @@ img {
 }
 
 button {
-    margin-top: 15px;
-    padding: 10px 20px;
+    margin-top: 10px;
+    padding: 12px 20px;
     border: none;
     border-radius: 10px;
     background: white;
@@ -48,68 +45,18 @@ button {
 }
 
 #countdown {
-    font-size: 24px;
-    margin-top: 15px;
+    font-size: 22px;
+    margin-top: 10px;
 }
-</style>
 
-</head>
-<body>
+/* Жүрек анимация */
+.heart {
+    position: fixed;
+    color: pink;
+    animation: float 5s linear infinite;
+}
 
-<div class="container">
-    <h1>💍 Үйлену тойына шақыру 💍</h1>
-
-    <img src="https://i.imgur.com/7b1Z6oO.jpg" alt="Фото">
-
-    <div class="card">
-        <p>Құрметті қонақтар!</p>
-        <p>Сіздерді біздің қуанышымызбен бөлісуге шақырамыз ❤️</p>
-
-        <h2>📅 20 Тамыз 2026</h2>
-        <h3>📍 Тараз қаласы</h3>
-
-        <div id="countdown"></div>
-
-        <button onclick="alert('Сізді күтеміз ❤️')">Келемін</button>
-    </div>
-
-    <div class="card">
-        <h3>📍 Орналасқан жері</h3>
-        <iframe 
-            src="https://www.google.com/maps?q=Taraz&output=embed"
-            width="100%" 
-            height="250" 
-            style="border:0; border-radius:15px;">
-        </iframe>
-    </div>
-
-    <audio controls autoplay loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
-    </audio>
-
-</div>
-
-<script>
-// Таймер
-const weddingDate = new Date("Aug 20, 2026 18:00:00").getTime();
-
-const x = setInterval(function() {
-    const now = new Date().getTime();
-    const distance = weddingDate - now;
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-
-    document.getElementById("countdown").innerHTML =
-        "⏳ Қалды: " + days + " күн " + hours + " сағ " + minutes + " мин";
-
-    if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("countdown").innerHTML = "Той басталды!";
-    }
-}, 1000);
-</script>
-
-</body>
-</html>
+@keyframes float {
+    0% { transform: translateY(100vh); opacity: 1; }
+    100
+        
