@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html lang="kk">
+<!DOCTYPE html><html lang="kk">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Тойға шақыру</title>
-
-<style>
+<title>Тойға шақыру</title><style>
 body {
     margin: 0;
     font-family: sans-serif;
     text-align: center;
     color: white;
     background: linear-gradient(to right, #ff758c, #ff7eb3);
-    overflow-x: hidden;
 }
 
 .container {
@@ -26,15 +22,7 @@ body {
     margin-top: 20px;
 }
 
-img {
-    width: 80%;
-    max-width: 300px;
-    border-radius: 20px;
-    margin-top: 20px;
-}
-
 button {
-    margin-top: 10px;
     padding: 12px 20px;
     border: none;
     border-radius: 10px;
@@ -44,19 +32,58 @@ button {
     cursor: pointer;
 }
 
-#countdown {
-    font-size: 22px;
-    margin-top: 10px;
+input {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    width: 80%;
 }
+</style></head><body><div class="container">
+    <h1>💍 Мұхаммедқали & Балауса 💍</h1><!-- Музыка -->
+<iframe width="100%" height="200"
+src="https://www.youtube.com/embed?listType=search&list=Ильхан Вальс"
+frameborder="0" allowfullscreen
+style="border-radius:15px;">
+</iframe>
 
-/* Жүрек анимация */
-.heart {
-    position: fixed;
-    color: pink;
-    animation: float 5s linear infinite;
+<!-- Шақырту -->
+<div class="card">
+    <p>Құрметті қонақтарымыз!</p>
+
+    <p>Сіздерді үйлену тойымызға шын жүректен шақырамыз ❤️</p>
+
+    <h3>📅 28 маусым 2026</h3>
+    <h3>🕕 18:00</h3>
+</div>
+
+<!-- Мекенжай -->
+<div class="card">
+    <h3>📍 Той орны</h3>
+    <p>Саудакент, "Ақ Отау"</p>
+
+    <iframe 
+    src="https://www.google.com/maps?q=Саудакент&output=embed"
+    width="100%" height="250"
+    style="border:0; border-radius:15px;">
+    </iframe>
+</div>
+
+<!-- Қатысу -->
+<div class="card">
+    <h3>Қатысу</h3>
+    <input id="name" placeholder="Атыңыз"><br><br>
+
+    <button onclick="send()">Келемін</button>
+</div>
+
+</div><script>
+function send() {
+    const name = document.getElementById("name").value;
+    const phone = "77000000000"; // ӨЗ НОМЕРІҢ
+
+    const text = `Сәлем! Мен ${name} тойға келемін ❤️`;
+
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`);
 }
-
-@keyframes float {
-    0% { transform: translateY(100vh); opacity: 1; }
-    100
-        
+</script></body>
+</html>
