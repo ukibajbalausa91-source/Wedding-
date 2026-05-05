@@ -3,54 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Мұхаммед-Қали & Балауса</title>
+<title>Мухаммед-Кали & Балауса</title>
 
 <style>
 body {
-    margin: 0;
-    font-family: 'Georgia', serif;
-    color: white;
-    text-align: center;
-    background: url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486') no-repeat center/cover;
+  margin: 0;
+  font-family: Georgia, serif;
+  text-align: center;
+  color: white;
+  background: url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486') no-repeat center/cover;
 }
 
 .overlay {
-    background: rgba(0,0,0,0.5);
-    min-height: 100vh;
-    padding: 40px 20px;
+  background: rgba(0,0,0,0.5);
+  min-height: 100vh;
+  padding: 20px;
 }
 
-h1 {
-    font-size: 42px;
-    margin-top: 40px;
+.box {
+  background: white;
+  color: black;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 15px;
 }
 
-.section {
-    margin: 40px 0;
+button {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #ff4d6d;
+  color: white;
 }
 
-.card {
-    background: rgba(255,255,255,0.9);
-    color: #333;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 420px;
-    border-radius: 15px;
+input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
-.button {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 12px 25px;
-    background: #d4af37;
-    color: white;
-    text-decoration: none;
-    border-radius: 25px;
-}
-
-#countdown {
-    font-size: 24px;
-    margin-top: 20px;
+iframe {
+  width: 100%;
+  height: 250px;
+  border-radius: 10px;
 }
 </style>
 </head>
@@ -59,64 +54,52 @@ h1 {
 
 <div class="overlay">
 
-<h1>Мұхаммед-Қали & Балауса</h1>
+<h1>Мухаммед-Кали & Балауса</h1>
 <p>28 маусым 2026</p>
 
-<div id="countdown"></div>
-
-<div class="card">
-<h2>Құрметті қонақтар!</h2>
-<p>
-Сіздерді үйлену тойымызға қуана шақырамыз!
-</p>
-</div>
-
-<div class="card">
-<h2>Той туралы</h2>
-<p>📅 28 маусым 2026</p>
-<p>⏰ 19:00</p>
-<p>📍 Саудакент ауылы<br>"Ақ Отау" мейрамханасы</p>
-
-<a class="button" href="https://maps.google.com">Карта</a>
-</div>
-
-<div class="card">
-<h2>Бағдарлама</h2>
-<p>18:30 — Қонақтарды қарсы алу</p>
-<p>19:00 — Той басталуы</p>
-<p>20:00 — Құттықтаулар</p>
-<p>21:30 — Би</p>
-</div>
-
-<div class="card">
-<h2>Қатысуды растау</h2>
-<a class="button" href="https://wa.me/77000000000">Қатысамын</a>
-</div>
-
-<p>Сіздерді асыға күтеміз ❤️</p>
-
-</div>
-
-<audio autoplay loop>
-<source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+<!-- МУЗЫКА -->
+<audio id="music" loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
 </audio>
 
+<button onclick="playMusic()">🎵 Музыканы қосу</button>
+
+<!-- КАРТА -->
+<div class="box">
+<h2>Той орны</h2>
+<p>Саудакент "Ақ Отау"</p>
+
+<iframe src="https://maps.google.com/maps?q=Saudakent&output=embed"></iframe>
+</div>
+
+<!-- КЕЛЕМІН -->
+<div class="box">
+<h2>Қатысу</h2>
+
+<input type="text" id="name" placeholder="Атыңыз"><br><br>
+
+<button onclick="send()">Келемін</button>
+
+<p id="msg"></p>
+</div>
+
+</div>
+
 <script>
-// Countdown
-var countDate = new Date("June 28, 2026 19:00:00").getTime();
+function playMusic(){
+document.getElementById("music").play();
+}
 
-var x = setInterval(function() {
-    var now = new Date().getTime();
-    var distance = countDate - now;
+function send(){
+let name = document.getElementById("name").value;
 
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+if(name==""){
+alert("Атыңызды жазыңыз");
+return;
+}
 
-    document.getElementById("countdown").innerHTML =
-    days + " күн " + hours + " сағат " + minutes + " минут";
-
-}, 1000);
+document.getElementById("msg").innerText = "Рахмет, " + name + "!";
+}
 </script>
 
 </body>
